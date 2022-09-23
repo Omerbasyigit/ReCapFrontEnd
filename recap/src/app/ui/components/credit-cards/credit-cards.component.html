@@ -1,0 +1,37 @@
+ <body class="text-center">
+    
+    <main class="form-signin w-100 m-auto">
+      <form [formGroup]="creditCardForm">
+        <h1 class="h3 mb-3 fw-normal"></h1>
+    
+        <div class="form-floating">
+          <input formControlName="cardNumber" type="text" class="form-control" id="cardNumber" placeholder="">
+          <label for="cardNumber">KART NO</label>
+        </div>
+        <div class="form-floating">
+          <input formControlName="customerName" type="text" class="form-control" id="customerName" placeholder="">
+          <label for="customerName">AD</label>
+        </div>
+        <div class="form-floating">
+            <input formControlName="customerLastName" type="text" class="form-control" id="customerLastName" placeholder="">
+            <label for="customerLastName">SOYAD</label>
+          </div>
+          <div class="form-floating">
+            <input formControlName="cvv" type="text" class="form-control" id="cvv" placeholder="---">
+            <label for="cvv">CVV</label>
+          </div>
+          <div class="form-floating">
+            <input formControlName="expirationDate" type="date" class="form-control" id="expirationDate" placeholder="aa/yy">
+            <label for="customerName">Bitiş Tarihi</label>
+          </div>
+    
+        <div class="checkbox mb-3">
+          <label>
+            <input type="checkbox" value="remember-me"> Beni Hatırla
+          </label>
+        </div>
+        <button class="w-100 btn btn-lg btn-primary" type="submit" (click)="addCreditCard()">Kaydet</button>
+        <p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
+      </form>
+    </main>
+ </body>

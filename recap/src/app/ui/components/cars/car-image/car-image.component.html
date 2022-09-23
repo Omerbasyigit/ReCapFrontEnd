@@ -1,0 +1,9 @@
+<div>
+    <ul *ngFor="let carImage of carImages" class="list-group">
+        <li>{{carImage.date |date:"dd.mm.yy"}}</li>
+        <li>
+            <img src="https://localhost:44326/images/{{carImage.imagePath}}" width="500">
+            
+        </li>
+    </ul>
+   

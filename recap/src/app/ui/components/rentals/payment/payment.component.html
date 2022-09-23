@@ -1,0 +1,5 @@
+<select  [(ngModel)]="selectedCard" (ngModelChange)="onSelected($event)" class="form-select" aria-label="Default select example" >
+  <option  *ngFor="let creditCard of creditCards" [value]="creditCard.cardNumber" >{{creditCard.cardNumber}}</option>
+</select>
+<h3>Lütfen Kart Bilginizi Seçiniz</h3>
+<button class="btn btn-primary" *ngIf="!isSelectedCard()" type="button" routerLink="/creditcards">Kart Ekle</button>

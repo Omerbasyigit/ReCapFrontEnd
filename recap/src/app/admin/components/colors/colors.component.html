@@ -1,0 +1,42 @@
+<mat-drawer-container class="colors-container">
+    <mat-drawer mode="side" opened  class="colors-left">
+      <body class="text-center">
+    
+        <main class="form-signin w-100 m-auto">
+          <form [formGroup]="colorAddForm">
+        
+            <div class="form-floating">
+              <input formControlName="colorName" type="text" class="form-control" id="colorName" placeholder="colorName">
+              <label for="colorName">Renk</label>
+            </div>
+
+            <button class="w-100 btn btn-lg btn-primary" type="submit" (click)="addColor()">Renk Ekle</button>
+            <p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
+          </form>
+        </main>
+          </body> 
+    </mat-drawer>
+    <mat-drawer-content> <div class="mb-3">
+      <label for="colorFilter" class="form-label"> Renk Ara</label>
+      <input type="text" [(ngModel)]="colorFilter" class="form-control" id="colorFilter" placeholder="arama ifadesi">
+    </div>
+    
+    <div>
+     
+      <table class="table">
+        <thead>
+          <th>Renk</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let color of colors|colorFilter:colorFilter" (click)="setCurrentColor(color)" class="table-group">
+            <td>{{color.colorName}}</td>
+            <td><button class="btn btn-success" type="submit" (click)="deleteColor()" [class]="getCurrentColor(color)">Sil</button></td>
+            <td ><button class="btn btn-warning" type="submit"   [class]="getCurrentColor(color)" routerLink="update/{{color.colorId}}">Güncelle</button> </td>
+          </tr>
+        </tbody>
+      </table>
+      
+    </div>
+     </mat-drawer-content>
+  </mat-drawer-container>
+

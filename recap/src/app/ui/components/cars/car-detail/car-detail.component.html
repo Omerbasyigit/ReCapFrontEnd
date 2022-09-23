@@ -1,0 +1,26 @@
+
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Marka</th>
+        <th scope="col">Renk</th>
+        <th scope="col">Günlük Fiyat</th>
+        <th scope="col">Tanım</th>
+        <th scope="col">Model Yılı</th>
+        <th scpoe="col">Resimler</th>
+        <th scope="col">Kirala</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{carDetail.brandName}}</td>
+        <td>{{carDetail.colorName}}</td>
+        <td >{{carDetail.dailyPrice}}</td>
+        <td >{{carDetail.description}}</td>
+        <td >{{carDetail.modelYear}}</td>
+        <td ><app-car-image></app-car-image></td>
+        <td ><button class="btn btn-primary" type="submit" routerLink="/rentals/add/{{carDetail.carId}}">Kirala</button></td>
+      </tr>
+    </tbody>
+  </table>

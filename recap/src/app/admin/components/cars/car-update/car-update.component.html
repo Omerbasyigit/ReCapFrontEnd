@@ -1,0 +1,27 @@
+<main class="form-signin w-100 m-auto">
+    <form [formGroup]="carUpdateForm">
+  
+      <div class="form-floating">
+        <input formControlName="brandId" type="number" class="form-control" id="brandId" placeholder="brandId">
+        <label for="brandId">Marka Id</label>
+      </div>
+      <div class="form-floating">
+        <input formControlName="colorId" type="number" class="form-control" id="colorId" placeholder="colorId">
+        <label for="colorId">Renk Id</label>
+      </div>
+      <div class="form-floating">
+        <input formControlName="modelYear" type="number" class="form-control" id="modelYear" placeholder="">
+        <label for="modelYear">Model Yılı</label>
+      </div>
+      <div class="form-floating">
+        <input formControlName="dailyPrice" type="number" class="form-control" id="dailyPrice" placeholder="">
+        <label for="dailyPrice">Günlük Fiyat</label>
+      </div>
+      <div class="form-floating">
+        <input formControlName="description" type="text" class="form-control" id="description" placeholder="description">
+        <label for="description">Tanım</label>
+      </div>
+      <button class="w-100 btn btn-lg btn-primary" type="submit" (click)="updateCar()">Araba Güncelle</button>
+      <p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
+    </form>
+  </main>

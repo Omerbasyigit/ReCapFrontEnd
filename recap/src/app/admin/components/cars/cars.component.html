@@ -1,0 +1,85 @@
+<mat-drawer-container class="cars-container">
+    <mat-drawer mode="side" opened  class="cars-left">
+       <body class="text-center">
+    
+    <main class="form-signin w-100 m-auto">
+      <form [formGroup]="carAddForm">
+        <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+    
+        <div class="form-floating">
+          <input formControlName="brandId" type="number" class="form-control" id="brandId" placeholder="brandId">
+          <label for="brandId">Marka Id</label>
+        </div>
+        <div class="form-floating">
+          <input formControlName="colorId" type="number" class="form-control" id="colorId" placeholder="colorId">
+          <label for="colorId">Renk Id</label>
+        </div>
+        <div class="form-floating">
+          <input formControlName="modelYear" type="number" class="form-control" id="modelYear" placeholder="">
+          <label for="modelYear">Model Yılı</label>
+        </div>
+        <div class="form-floating">
+          <input formControlName="dailyPrice" type="number" class="form-control" id="dailyPrice" placeholder="">
+          <label for="dailyPrice">Günlük Fiyatı</label>
+        </div>
+        <div class="form-floating">
+          <input formControlName="description" type="text" class="form-control" id="description" placeholder="description">
+          <label for="description">Tanım</label>
+        </div>
+        <button class="w-100 btn btn-lg btn-primary" type="submit" (click)="addCar()">Araba Ekle</button>
+        <p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
+      </form>
+    </main>
+      </body> 
+    </mat-drawer>
+    <mat-drawer-content>
+    <div  class="col-xl-2 col-lg-4 col-md-6 px-2" >
+  <select  [(ngModel)]="brandFilter"  class="custom-select px-4 mb-3" style="height: 50px;">
+      <option value=0>Marka Seç</option>
+      <option *ngFor="let brand of brands"  value="{{brand.brandId}}" [selected]="getSelectedBrand(brand.brandId)"> {{brand.brandName}}</option>
+  </select>
+</div>
+<div  class="col-xl-2 col-lg-4 col-md-6 px-2">
+  <select  [(ngModel)]="colorFilter"  class="custom-select px-4 mb-3" style="height: 50px;">
+      <option value=0>Renk Seç</option>
+      <option *ngFor="let color of colors"  value="{{color.colorId}}" [selected]="getSelectedColor(color.colorId)"> {{color.colorName}}</option>
+      
+  </select>
+  <div class="col-xl-2 col-lg-4 col-md-6 px-2">
+    <button class="btn btn-primary btn-block mb-3" type="submit" style="height: 50px;"  
+    routerLink="brand/{{brandFilter}}/color/{{colorFilter}}">Ara</button>
+  </div>
+ 
+</div>
+<div class="mb-3">
+    <label for="filterText" class="form-label">Araba Ara</label>
+    <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="arama ifadesi">
+  </div>
+  <div>
+    <table class="table">
+      <thead>
+        <th>Marka</th>
+        <th>Renk</th>
+        <th>Model Yılı</th>
+        <th>Id</th>
+        <th>Detay</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+      </thead>
+        <tbody>
+          <tr *ngFor="let car of cars |carFilter:filterText" (click)="setCurrentCar(car)" class="table-group" >
+            <td>{{car.brandName}}</td>
+            <td>{{car.colorName}}</td>
+            <td>{{car.modelYear}}</td>
+            <td>{{car.carId}}</td>
+            <td><button class="btn btn-info"  type="submit" routerLink="cardetail/{{car.carId}}" 
+             (click)="setCurrentCar(car)" [class]="getCurrentCar(car)">Detay</button></td> 
+             <td><button class="btn btn-success" type="submit" (click)="deleteCar()" [class]="getCurrentCar(car)">Sil</button></td>
+             <td ><button class="btn btn-warning" type="submit"   [class]="getCurrentCar(car)" routerLink="update/{{car.carId}}">Güncelle</button> </td>
+            </tr>
+        </tbody>
+    </table>
+  </div> 
+ 
+    </mat-drawer-content>
+  </mat-drawer-container>

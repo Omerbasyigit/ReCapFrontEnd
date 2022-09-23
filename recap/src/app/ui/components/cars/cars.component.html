@@ -1,0 +1,43 @@
+
+    <div  class="col-xl-2 col-lg-4 col-md-6 px-2" >
+  <select  [(ngModel)]="brandFilter"  class="custom-select px-4 mb-3" style="height: 50px;">
+      <option value=0>Select a Brand</option>
+      <option *ngFor="let brand of brands"  value="{{brand.brandId}}" [selected]="getSelectedBrand(brand.brandId)"> {{brand.brandName}}</option>
+  </select>
+</div>
+<div  class="col-xl-2 col-lg-4 col-md-6 px-2">
+  <select  [(ngModel)]="colorFilter"  class="custom-select px-4 mb-3" style="height: 50px;">
+      <option value=0>Select a Color</option>
+      <option *ngFor="let color of colors"  value="{{color.colorId}}" [selected]="getSelectedColor(color.colorId)"> {{color.colorName}}</option>
+      
+  </select>
+  <div class="col-xl-2 col-lg-4 col-md-6 px-2">
+    <button class="btn btn-primary btn-block mb-3" type="submit" style="height: 50px;"  
+    routerLink="brand/{{brandFilter}}/color/{{colorFilter}}">Search</button>
+  </div>
+ 
+</div>
+<div class="mb-3">
+    <label for="filterText" class="form-label">Araba Ara</label>
+    <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="arama ifadesi">
+  </div>
+  <div>
+    <table class="table">
+      <thead>
+        <th>Brand Name</th>
+        <th>ColorName</th>
+        <th>Model Year</th>
+        <th>Detail</th>
+      </thead>
+        <tbody>
+          <tr *ngFor="let car of cars |carFilter:filterText" (click)="setCurrentCar(car)" class="table-group" >
+            <td>{{car.brandName}}</td>
+            <td>{{car.colorName}}</td>
+            <td>{{car.modelYear}}</td>
+            <td><button class="btn btn-info"  type="submit" routerLink="cardetail/{{car.carId}}" 
+             (click)="setCurrentCar(car)" [class]="getCurrentCar(car)">Detail</button></td> 
+            </tr>
+        </tbody>
+    </table>
+  </div> 
+

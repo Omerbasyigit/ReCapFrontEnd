@@ -1,0 +1,40 @@
+#navbar{
+    text-align: center;
+    height: 75;
+    width: 100%;
+    
+   
+}
+.container-fluid{
+  
+  height: 60px;
+   
+  
+}
+footer{
+  margin-bottom: 0px;
+  
+
+}
+.nav-item{
+  font-style: oblique;
+  font-size: medium;
+  margin-left: 20px;
+}
+.navbar-brand{
+  font-size: xx-large;
+}
+#left{
+  padding-block-start: 230vh;
+margin-top: auto;
+
+width: 184px;
+background-color: #1c2331;
+
+}
+#right{
+  padding-block-start: 230vh;
+  padding: auto;
+  width: 184px;
+  background-color: #1c2331;
+}

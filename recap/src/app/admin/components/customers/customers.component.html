@@ -1,0 +1,22 @@
+<mat-drawer-container class="customers-container">
+    <mat-drawer mode="side" opened  class="customers-left">Drawer content</mat-drawer>
+    <mat-drawer-content>
+       <table class="table">
+    <thead>
+        <tr>
+            <th>İsim</th>
+            <th>Soyisim</th>
+            <th>Şirket Adı</th>
+            <th>Email</th>
+            
+        </tr>
+    </thead>
+    <tr *ngFor="let customer of customers">
+       <td>{{customer.firstName}}</td>
+       <td>{{customer.lastName}}</td>
+       <td>{{customer.companyName}}</td>
+       <td>{{customer.email}}</td>
+    </tr>
+</table> 
+    </mat-drawer-content>
+  </mat-drawer-container>

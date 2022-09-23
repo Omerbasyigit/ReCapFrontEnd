@@ -1,0 +1,46 @@
+ <div>
+    <ul *ngFor="let carImage of carImages" class="list-group">
+        <li>{{carImage.date |date:"dd.mm.yy"}}</li>
+        <li>
+            <img src="https://localhost:44326/images/{{carImage.imagePath}}" width="500">
+             <button class="btn btn-primary" (click)="delete(carImage)">Sil</button>
+            
+        </li>
+    </ul>
+   
+<div  class="d-flex" id="wrapper">
+  <div id="page-content-wrapper">
+    <div class="container-fluid">
+      <br>
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header"><h5 class="card-title">Arabaya Resim Ekle</h5></div>
+          <div class="card-body">
+            <form [formGroup]="imageAddForm">
+              <div class="mb-3">
+                <div class="form-group">
+                </div>
+              </div>
+              <div class="mb-3">
+                <div class="form-group">
+                  <div class="form-group">
+                    <input type="file" (change)="uploadFile($event)">
+                  </div>
+                </div>
+              </div>
+
+            </form>
+          </div>
+          <div class="card-footer">
+            <div class="form-group">
+              <button class="btn btn-danger btn-block btn-lg" (click)="submitForm()">Resmi Ekle</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

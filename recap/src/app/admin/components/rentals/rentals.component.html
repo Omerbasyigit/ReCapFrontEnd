@@ -1,0 +1,22 @@
+<mat-drawer-container class="rentals-container">
+    <mat-drawer mode="side" opened  class="rentals-left">Drawer content</mat-drawer>
+    <mat-drawer-content>
+      
+<table class="table">
+    <thead>
+        <tr>
+            <th>İsim</th>
+            <th>Soyisim</th>
+            <th>Araba Id</th>
+            
+            
+        </tr>
+    </thead>
+    <tr *ngFor="let rental of rentals">
+        <td>{{rental.customerName}}</td>
+        <td>{{rental.customerLastName}}</td>
+        <td>{{rental.carId}}</td>
+    </tr>
+</table> 
+    </mat-drawer-content>
+  </mat-drawer-container>
